@@ -3,7 +3,11 @@ Proxmox Virtual IP for cluster management
 
 The shell script will install keepalived and nginx to enable easier cluster management with a standard port on 443 using nginx and keepalived to manage a virtual ip for cluster management using unicast between keepalived members. By default nginx will use promox ssl certificates with symlinks.
 
-Usage: ./keepalived.sh [options]
+Usage: 
+1. Download install-keepalived.sh
+2. chmod u+x ./install-keepalived.sh
+3. ./install-keepalived.sh [options]
+
 
 Options:
   --vip <ip>           Virtual IP address (e.g., 192.168.1.100)
@@ -18,13 +22,14 @@ Options:
 
 Examples:
   # First node
-  ./keepalived.sh --vip 192.168.1.100 --auto-detect --auth-pass mypassword
+ ./install-keepalived.sh --vip 192.168.1.100 --auto-detect --auth-pass mypassword
 
   # Subsequent nodes
-  ./keepalived.sh --vip 192.168.1.100 --auto-detect --auth-pass mypassword
+  ./install-keepalived.sh --vip 192.168.1.100 --auto-detect --auth-pass mypassword
 
   # Cleanup existing installation
-  ./keepalived.sh --cleanup
+  ./install-keepalived.sh --cleanup
+
 
 Nginx SSL Certificate logic:
 1. Use custom uploaded certificates if there are any (pveproxy-ssl.pem and pveproxy-ssl.ke)
